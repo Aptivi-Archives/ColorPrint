@@ -24,12 +24,8 @@
 
 using ColorSeq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ColorPrint.Graphics
+namespace ColorPrint.Core.Graphics
 {
     internal static class Box
     {

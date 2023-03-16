@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-using ColorPrint.Graphics;
+using ColorPrint.Core.Graphics;
 using ColorSeq;
 using System;
 
-namespace ColorPrint.Wheel
+namespace ColorPrint.Core.Wheel
 {
-    internal static class ColorWheel
+    public static class ColorWheel
     {
         private static double wheelSeverity = 0.60;
         private static ColorType wheelColorMode = ColorType.TrueColor;
@@ -37,6 +37,20 @@ namespace ColorPrint.Wheel
         private static ConsoleColor wheelColor16 = ConsoleColor.Green;
         private static Color wheelColor = new(wheelR, wheelG, wheelB);
         private static int wheelRgbIndicator = 0; // R = 0, G = 1, B = 2
+
+        public static Color InputForColor()
+        {
+            wheelColor = new(0, 128, 0);
+            ConsoleKeyInfo cki = default;
+            while (cki.Key != ConsoleKey.Escape)
+            {
+                RenderWheel();
+                cki = Console.ReadKey(true);
+                HandleUserInput(cki);
+                UpdateColor();
+            }
+            return wheelColor;
+        }
 
         internal static void RenderWheel()
         {
@@ -53,8 +67,8 @@ namespace ColorPrint.Wheel
             //   - Tritanopia color
             int topLeftCornerPosLeft = 2;
             int topLeftCornerPosTop = 1;
-            int boxWidth = (Console.WindowWidth / 4) - 2;
-            int boxHeight = (Console.WindowHeight / 3) - 2;
+            int boxWidth = Console.WindowWidth / 4 - 2;
+            int boxHeight = Console.WindowHeight / 3 - 2;
             int boxNum;
 
             // Render all the colors based on the current wheel color
@@ -71,9 +85,9 @@ namespace ColorPrint.Wheel
             ColorTools.EnableColorTransformation = false;
 
             // Render all the boxes now
-            for (boxNum = 0; boxNum < 4; boxNum++) 
+            for (boxNum = 0; boxNum < 4; boxNum++)
             {
-                int topLeftCornerPosLeftCurrent = ((boxWidth + 2) * boxNum) + topLeftCornerPosLeft;
+                int topLeftCornerPosLeftCurrent = (boxWidth + 2) * boxNum + topLeftCornerPosLeft;
                 Color color = boxNum == 1 ? wheelColorProtan :
                               boxNum == 2 ? wheelColorDeutan :
                               boxNum == 3 ? wheelColorTritan :
@@ -83,7 +97,7 @@ namespace ColorPrint.Wheel
                               boxNum == 3 ? $"Tritanopia [{wheelSeverity:n2}]" :
                               "Normal";
                 Box.MakeBox(topLeftCornerPosLeftCurrent, topLeftCornerPosTop, topLeftCornerPosLeftCurrent + boxWidth - 1, boxHeight, color);
-                Text.RenderText(mode, color, topLeftCornerPosLeftCurrent + (boxWidth / 2) - (mode.Length / 2), boxHeight + 2);
+                Text.RenderText(mode, color, topLeftCornerPosLeftCurrent + boxWidth / 2 - mode.Length / 2, boxHeight + 2);
             }
 
             // Write some color information
@@ -101,7 +115,7 @@ namespace ColorPrint.Wheel
             string adjusterTop = "  ^  ";
             string adjusterBottom = "  v  ";
             int adjusterLength = 5;
-            int greenAdjusterPos = (Console.WindowWidth / 2) - ((adjusterLength + 2) / 2) + 1;
+            int greenAdjusterPos = Console.WindowWidth / 2 - (adjusterLength + 2) / 2 + 1;
             int blueAdjusterPos = greenAdjusterPos + 7;
             int redAdjusterPos = greenAdjusterPos - 7;
             int adjusterTopTop = Console.WindowHeight - 8;
@@ -112,33 +126,33 @@ namespace ColorPrint.Wheel
                 Color redColor = new(255, 0, 0);
                 Color greenColor = new(0, 255, 0);
                 Color blueColor = new(0, 0, 255);
-                Text.RenderText(adjusterTop,        wheelRgbIndicator == 0 ? Color.Empty : redColor, wheelRgbIndicator == 0 ? redColor : Color.Empty, redAdjusterPos, adjusterTopTop);
-                Text.RenderText($"{wheelColor.R}",  redColor, redAdjusterPos + ($"{wheelColor.R}".Length == 1 ? 2 : $"{wheelColor.R}".Length / 2), adjusterInfoTop);
-                Text.RenderText(adjusterBottom,     wheelRgbIndicator == 0 ? Color.Empty : redColor, wheelRgbIndicator == 0 ? redColor : Color.Empty, redAdjusterPos, adjusterBottomTop);
-                Text.RenderText(adjusterTop,        wheelRgbIndicator == 1 ? Color.Empty : greenColor, wheelRgbIndicator == 1 ? greenColor : Color.Empty, greenAdjusterPos, adjusterTopTop);
-                Text.RenderText($"{wheelColor.G}",  greenColor, greenAdjusterPos + ($"{wheelColor.G}".Length == 1 ? 2 : $"{wheelColor.G}".Length / 2), adjusterInfoTop);
-                Text.RenderText(adjusterBottom,     wheelRgbIndicator == 1 ? Color.Empty : greenColor, wheelRgbIndicator == 1 ? greenColor : Color.Empty, greenAdjusterPos, adjusterBottomTop);
-                Text.RenderText(adjusterTop,        wheelRgbIndicator == 2 ? Color.Empty : blueColor, wheelRgbIndicator == 2 ? blueColor : Color.Empty, blueAdjusterPos, adjusterTopTop);
-                Text.RenderText($"{wheelColor.B}",  blueColor, blueAdjusterPos + ($"{wheelColor.B}".Length == 1 ? 2 : $"{wheelColor.B}".Length / 2), adjusterInfoTop);
-                Text.RenderText(adjusterBottom,     wheelRgbIndicator == 2 ? Color.Empty : blueColor, wheelRgbIndicator == 2 ? blueColor : Color.Empty, blueAdjusterPos, adjusterBottomTop);
+                Text.RenderText(adjusterTop, wheelRgbIndicator == 0 ? Color.Empty : redColor, wheelRgbIndicator == 0 ? redColor : Color.Empty, redAdjusterPos, adjusterTopTop);
+                Text.RenderText($"{wheelColor.R}", redColor, redAdjusterPos + ($"{wheelColor.R}".Length == 1 ? 2 : $"{wheelColor.R}".Length / 2), adjusterInfoTop);
+                Text.RenderText(adjusterBottom, wheelRgbIndicator == 0 ? Color.Empty : redColor, wheelRgbIndicator == 0 ? redColor : Color.Empty, redAdjusterPos, adjusterBottomTop);
+                Text.RenderText(adjusterTop, wheelRgbIndicator == 1 ? Color.Empty : greenColor, wheelRgbIndicator == 1 ? greenColor : Color.Empty, greenAdjusterPos, adjusterTopTop);
+                Text.RenderText($"{wheelColor.G}", greenColor, greenAdjusterPos + ($"{wheelColor.G}".Length == 1 ? 2 : $"{wheelColor.G}".Length / 2), adjusterInfoTop);
+                Text.RenderText(adjusterBottom, wheelRgbIndicator == 1 ? Color.Empty : greenColor, wheelRgbIndicator == 1 ? greenColor : Color.Empty, greenAdjusterPos, adjusterBottomTop);
+                Text.RenderText(adjusterTop, wheelRgbIndicator == 2 ? Color.Empty : blueColor, wheelRgbIndicator == 2 ? blueColor : Color.Empty, blueAdjusterPos, adjusterTopTop);
+                Text.RenderText($"{wheelColor.B}", blueColor, blueAdjusterPos + ($"{wheelColor.B}".Length == 1 ? 2 : $"{wheelColor.B}".Length / 2), adjusterInfoTop);
+                Text.RenderText(adjusterBottom, wheelRgbIndicator == 2 ? Color.Empty : blueColor, wheelRgbIndicator == 2 ? blueColor : Color.Empty, blueAdjusterPos, adjusterBottomTop);
             }
             else if (wheelColorMode == ColorType._255Color)
             {
                 Text.RenderText(adjusterTop, Color.Empty, wheelColor, greenAdjusterPos, adjusterTopTop);
-                Text.RenderText($"{wheelColor255} [{(int)wheelColor255}]", wheelColor, (Console.WindowWidth / 2) - ($"{wheelColor255} [{(int)wheelColor255}]".Length == 1 ? 2 : $"{wheelColor255} [{(int)wheelColor255}]".Length / 2), adjusterInfoTop);
+                Text.RenderText($"{wheelColor255} [{(int)wheelColor255}]", wheelColor, Console.WindowWidth / 2 - ($"{wheelColor255} [{(int)wheelColor255}]".Length == 1 ? 2 : $"{wheelColor255} [{(int)wheelColor255}]".Length / 2), adjusterInfoTop);
                 Text.RenderText(adjusterBottom, Color.Empty, wheelColor, greenAdjusterPos, adjusterBottomTop);
             }
             else
             {
                 Text.RenderText(adjusterTop, Color.Empty, wheelColor, greenAdjusterPos, adjusterTopTop);
-                Text.RenderText($"{wheelColor16}  [{(int)wheelColor16}]", wheelColor, (Console.WindowWidth / 2) - ($"{wheelColor16} [{(int)wheelColor16}]".Length == 1 ? 2 : $"{wheelColor16} [{(int)wheelColor16}]".Length / 2), adjusterInfoTop);
+                Text.RenderText($"{wheelColor16}  [{(int)wheelColor16}]", wheelColor, Console.WindowWidth / 2 - ($"{wheelColor16} [{(int)wheelColor16}]".Length == 1 ? 2 : $"{wheelColor16} [{(int)wheelColor16}]".Length / 2), adjusterInfoTop);
                 Text.RenderText(adjusterBottom, Color.Empty, wheelColor, greenAdjusterPos, adjusterBottomTop);
             }
             Text.RenderText("\n\n", new Color(ConsoleColors.White));
 
             // Write the bound keys list
             string keysStr = "[ESC] Exit | [-> | <-] RGB | [CTRL + -> | CTRL + <-] Severity | [TAB] Mode | [UP | DOWN] Color";
-            Text.RenderText(keysStr, new Color(ConsoleColors.White), (Console.WindowWidth / 2) - (keysStr.Length / 2), Console.CursorTop);
+            Text.RenderText(keysStr, new Color(ConsoleColors.White), Console.WindowWidth / 2 - keysStr.Length / 2, Console.CursorTop);
         }
 
         internal static void UpdateColor()

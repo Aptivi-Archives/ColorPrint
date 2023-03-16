@@ -22,9 +22,8 @@
  * SOFTWARE.
  */
 
-using ColorPrint.Wheel;
-using ColorPrint.Windows;
-using System;
+using ColorPrint.Core.Wheel;
+using ColorPrint.Core.Windows;
 
 namespace ColorPrint
 {
@@ -36,14 +35,7 @@ namespace ColorPrint
             Initializer.InitializeSequences();
 
             // Start the color wheel
-            ConsoleKeyInfo cki = default;
-            while (cki.Key != ConsoleKey.Escape)
-            {
-                ColorWheel.RenderWheel();
-                cki = Console.ReadKey(true);
-                ColorWheel.HandleUserInput(cki);
-                ColorWheel.UpdateColor();
-            }
+            ColorWheel.InputForColor();
         }
     }
 }

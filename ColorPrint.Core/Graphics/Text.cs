@@ -25,7 +25,7 @@
 using ColorSeq;
 using System;
 
-namespace ColorPrint.Graphics
+namespace ColorPrint.Core.Graphics
 {
     internal static class Text
     {
@@ -67,7 +67,7 @@ namespace ColorPrint.Graphics
         internal static void RenderText(string text, Color foregroundColor, Color backgroundColor, params object[] vars)
         {
             // Store the old cursor position in case the position bug still occurs on Linux systems
-            (int, int) cursorPos = Console.GetCursorPosition();
+            (int, int) cursorPos = (Console.CursorLeft, Console.CursorTop);
             Console.Write(foregroundColor.VTSequenceForeground);
             Console.Write(backgroundColor.VTSequenceBackground);
             Console.SetCursorPosition(cursorPos.Item1, cursorPos.Item2);
@@ -122,7 +122,7 @@ namespace ColorPrint.Graphics
         internal static void RenderText(string text, Color foregroundColor, Color backgroundColor, int posX, int posY, params object[] vars)
         {
             // Store the old cursor position in case the position bug still occurs on Linux systems
-            (int, int) cursorPos = Console.GetCursorPosition();
+            (int, int) cursorPos = (Console.CursorLeft, Console.CursorTop);
             Console.Write(foregroundColor.VTSequenceForeground);
             Console.Write(backgroundColor.VTSequenceBackground);
             Console.SetCursorPosition(cursorPos.Item1, cursorPos.Item2);

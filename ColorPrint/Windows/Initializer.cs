@@ -25,7 +25,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ColorPrint.Windows
+namespace ColorPrint.Core.Windows
 {
     internal static class Initializer
     {
