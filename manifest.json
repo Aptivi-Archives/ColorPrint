@@ -16,6 +16,42 @@
       "is_incremental": false
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ColorPrint.Core.Wheel.ColorWheel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ColorPrint.Core.Wheel.ColorWheel.html",
+          "hash": "2MSHO0bV/oUAHHhKXo2EmrwtnuDv72N7Ik2NeqB38AM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ColorPrint.Core.Wheel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ColorPrint.Core.Wheel.html",
+          "hash": "oBJoAiemPgM5R31BGDxAZsX2hg/Cxtzdax91t95+YMg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "5kyVCKE3SvMfhCMnKgOELlad7rdLjz20RhksAm1DBZ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -33,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "YRmnFoPaOxFl2evu6LXNr5JoBn/n1MdrdBX1LzjfM34="
+          "hash": "B91Enl4PIKeWYLGeYdg3yhUs/tD4z2uNcYhQ+0mLFxw="
         }
       },
       "is_incremental": false,
@@ -55,6 +91,12 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

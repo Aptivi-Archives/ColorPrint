@@ -1,3 +1,28 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: ColorPrint.Core.Wheel
+  name: ColorPrint.Core.Wheel
+  href: api/ColorPrint.Core.Wheel.html
+  commentId: N:ColorPrint.Core.Wheel
+  fullName: ColorPrint.Core.Wheel
+  nameWithType: ColorPrint.Core.Wheel
+- uid: ColorPrint.Core.Wheel.ColorWheel
+  name: ColorWheel
+  href: api/ColorPrint.Core.Wheel.ColorWheel.html
+  commentId: T:ColorPrint.Core.Wheel.ColorWheel
+  fullName: ColorPrint.Core.Wheel.ColorWheel
+  nameWithType: ColorWheel
+- uid: ColorPrint.Core.Wheel.ColorWheel.InputForColor
+  name: InputForColor()
+  href: api/ColorPrint.Core.Wheel.ColorWheel.html#ColorPrint_Core_Wheel_ColorWheel_InputForColor
+  commentId: M:ColorPrint.Core.Wheel.ColorWheel.InputForColor
+  fullName: ColorPrint.Core.Wheel.ColorWheel.InputForColor()
+  nameWithType: ColorWheel.InputForColor()
+- uid: ColorPrint.Core.Wheel.ColorWheel.InputForColor*
+  name: InputForColor
+  href: api/ColorPrint.Core.Wheel.ColorWheel.html#ColorPrint_Core_Wheel_ColorWheel_InputForColor_
+  commentId: Overload:ColorPrint.Core.Wheel.ColorWheel.InputForColor
+  isSpec: "True"
+  fullName: ColorPrint.Core.Wheel.ColorWheel.InputForColor
+  nameWithType: ColorWheel.InputForColor
