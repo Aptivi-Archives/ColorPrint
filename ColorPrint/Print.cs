@@ -35,7 +35,7 @@ namespace ColorPrint
             Initializer.InitializeSequences();
 
             // Start the color wheel
-            ColorWheel.InputForColor();
+            var test = ColorWheel.InputForColor();
         }
     }
 }

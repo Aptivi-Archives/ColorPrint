@@ -40,15 +40,17 @@ namespace ColorPrint.Core.Wheel
 
         public static Color InputForColor()
         {
-            wheelColor = new(0, 128, 0);
+            ResetColors();
             ConsoleKeyInfo cki = default;
-            while (cki.Key != ConsoleKey.Escape)
+            while (cki.Key != ConsoleKey.Escape && cki.Key != ConsoleKey.Enter)
             {
                 RenderWheel();
                 cki = Console.ReadKey(true);
                 HandleUserInput(cki);
                 UpdateColor();
             }
+            if (cki.Key == ConsoleKey.Escape)
+                ResetColors();
             return wheelColor;
         }
 
@@ -151,7 +153,7 @@ namespace ColorPrint.Core.Wheel
             Text.RenderText("\n\n", new Color(ConsoleColors.White));
 
             // Write the bound keys list
-            string keysStr = "[ESC] Exit | [<- | ->] RGB | [CTRL + <- | CTRL + ->] Severity | [TAB] Mode | [UP | DOWN] Color";
+            string keysStr = "[ESC] Exit | [<- | ->] RGB | [CTRL + <- | CTRL + ->] Severity | [TAB] Mode | [UP | DOWN] Color | [ENTER] Accept";
             Text.RenderText(keysStr, new Color(ConsoleColors.White), Console.WindowWidth / 2 - keysStr.Length / 2, Console.CursorTop);
         }
 
@@ -307,6 +309,17 @@ namespace ColorPrint.Core.Wheel
                         wheelColor16--;
                     break;
             }
+        }
+
+        private static void ResetColors()
+        {
+            wheelColorMode = ColorType.TrueColor;
+            wheelR = 0;
+            wheelG = 128;
+            wheelB = 0;
+            wheelColor255 = ConsoleColors.Green;
+            wheelColor16 = ConsoleColor.Green;
+            wheelColor = new(wheelR, wheelG, wheelB);
         }
     }
 }
