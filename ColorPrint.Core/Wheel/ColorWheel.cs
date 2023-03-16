@@ -151,7 +151,7 @@ namespace ColorPrint.Core.Wheel
             Text.RenderText("\n\n", new Color(ConsoleColors.White));
 
             // Write the bound keys list
-            string keysStr = "[ESC] Exit | [-> | <-] RGB | [CTRL + -> | CTRL + <-] Severity | [TAB] Mode | [UP | DOWN] Color";
+            string keysStr = "[ESC] Exit | [<- | ->] RGB | [CTRL + <- | CTRL + ->] Severity | [TAB] Mode | [UP | DOWN] Color";
             Text.RenderText(keysStr, new Color(ConsoleColors.White), Console.WindowWidth / 2 - keysStr.Length / 2, Console.CursorTop);
         }
 
