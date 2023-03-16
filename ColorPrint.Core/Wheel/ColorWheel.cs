@@ -37,6 +37,8 @@ namespace ColorPrint.Core.Wheel
         private static ConsoleColor wheelColor16 = ConsoleColor.Green;
         private static Color wheelColor = new(wheelR, wheelG, wheelB);
         private static int wheelRgbIndicator = 0; // R = 0, G = 1, B = 2
+        private static Color infoBoxColorFg = new(ConsoleColors.White);
+        private static Color infoBoxColorBg = new(ConsoleColors.DarkRed);
 
         public static Color InputForColor()
         {
@@ -153,7 +155,7 @@ namespace ColorPrint.Core.Wheel
             Text.RenderText("\n\n", new Color(ConsoleColors.White));
 
             // Write the bound keys list
-            string keysStr = "[ESC] Exit | [<- | ->] RGB | [CTRL + <- | CTRL + ->] Severity | [TAB] Mode | [UP | DOWN] Color | [ENTER] Accept";
+            string keysStr = "[ESC] Exit | [ENTER] Accept | [H] Help";
             Text.RenderText(keysStr, new Color(ConsoleColors.White), Console.WindowWidth / 2 - keysStr.Length / 2, Console.CursorTop);
         }
 
@@ -201,6 +203,21 @@ namespace ColorPrint.Core.Wheel
                         DecrementSeverity();
                     else
                         DecrementRgbIndicator();
+                    break;
+                case ConsoleKey.H:
+                    Box.MakeInfoBox(infoBoxColorBg, infoBoxColorFg, 
+                        "Controls\n" +
+                        "--------\n" +
+                        "\n" +
+                        "[ESC]       | Exits the color selection\n" +
+                        "[ENTER]     | Accepts the color selection\n" +
+                        "[<-]        | Goes to the previous RGB level\n" +
+                        "[->]        | Goes to the next RGB level\n" +
+                        "[CTRL + <-] | Decreases the color-blind severity\n" +
+                        "[CTRL + ->] | Increases the color-blind severity\n" +
+                        "[TAB]       | Changes the color mode (16, 255, true)\n" +
+                        "[UP]        | Increases the current RGB value of color\n" +
+                        "[DOWN]      | Decreases the current RGB value of color");
                     break;
             }
         }
