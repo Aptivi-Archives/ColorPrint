@@ -37,8 +37,8 @@ namespace ColorPrint.Core.Wheel
         private static ConsoleColor wheelColor16 = ConsoleColor.Green;
         private static Color wheelColor = new(wheelR, wheelG, wheelB);
         private static int wheelRgbIndicator = 0; // R = 0, G = 1, B = 2
-        private static Color infoBoxColorFg = new(ConsoleColors.White);
-        private static Color infoBoxColorBg = new(ConsoleColors.DarkRed);
+        private static readonly Color infoBoxColorFg = new(ConsoleColors.White);
+        private static readonly Color infoBoxColorBg = new(ConsoleColors.DarkRed);
 
         public static Color InputForColor()
         {
