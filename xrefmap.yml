@@ -19,6 +19,12 @@ references:
   commentId: M:ColorPrint.Core.Wheel.ColorWheel.InputForColor
   fullName: ColorPrint.Core.Wheel.ColorWheel.InputForColor()
   nameWithType: ColorWheel.InputForColor()
+- uid: ColorPrint.Core.Wheel.ColorWheel.InputForColor(Color)
+  name: InputForColor(Color)
+  href: api/ColorPrint.Core.Wheel.ColorWheel.html#ColorPrint_Core_Wheel_ColorWheel_InputForColor_Color_
+  commentId: M:ColorPrint.Core.Wheel.ColorWheel.InputForColor(Color)
+  fullName: ColorPrint.Core.Wheel.ColorWheel.InputForColor(Color)
+  nameWithType: ColorWheel.InputForColor(Color)
 - uid: ColorPrint.Core.Wheel.ColorWheel.InputForColor*
   name: InputForColor
   href: api/ColorPrint.Core.Wheel.ColorWheel.html#ColorPrint_Core_Wheel_ColorWheel_InputForColor_

@@ -2,7 +2,7 @@
   "api/ColorPrint.Core.Wheel.ColorWheel.html": {
     "href": "api/ColorPrint.Core.Wheel.ColorWheel.html",
     "title": "Class ColorWheel | ColorPrint API - Aptivi",
-    "keywords": "Class ColorWheel Inheritance System.Object ColorWheel Namespace : ColorPrint.Core.Wheel Assembly : ColorPrint.Core.dll Syntax public static class ColorWheel : object Methods InputForColor() Declaration public static Color InputForColor() Returns Type Description Color"
+    "keywords": "Class ColorWheel Inheritance System.Object ColorWheel Namespace : ColorPrint.Core.Wheel Assembly : ColorPrint.Core.dll Syntax public static class ColorWheel : object Methods InputForColor() Declaration public static Color InputForColor() Returns Type Description Color InputForColor(Color) Declaration public static Color InputForColor(Color initialColor) Parameters Type Name Description Color initialColor Returns Type Description Color"
   },
   "api/ColorPrint.Core.Wheel.html": {
     "href": "api/ColorPrint.Core.Wheel.html",
