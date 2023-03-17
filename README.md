@@ -5,7 +5,7 @@
 <br>
     
 <img
-  src = 'https://cdn.jsdelivr.net/gh/Aptivi/ColorPrint@main/ColorPrint/OfficialAppIcon-ColorPrint-512.png'
+  src = 'https://cdn.jsdelivr.net/gh/Aptivi/ColorPrint@latest/ColorPrint/OfficialAppIcon-ColorPrint-512.png'
   width = 256
   align = center
 />
@@ -43,7 +43,7 @@
 
 [Releases]: https://github.com/Aptivi/ColorPrint/releases
 [Latest]: https://github.com/Aptivi/ColorPrint/releases/latest
-[NuGet]: https://www.nuget.org/packages/ColorPrint/
+[NuGet]: https://www.nuget.org/packages/ColorPrint.Core/
 
 [Main]: https://github.com/Aptivi/ColorPrint/actions/workflows/build-win.yml
 [Main Linux]: https://github.com/Aptivi/ColorPrint/actions/workflows/build-linux.yml
@@ -56,7 +56,7 @@
 
 [Badge Downloads]: https://img.shields.io/github/downloads/Aptivi/ColorPrint/total?color=217346&label=Downloads&style=for-the-badge&logoColor=white&logo=DocuSign&labelColor=2d9d5f
 [Badge Latest]: https://img.shields.io/github/v/release/Aptivi/ColorPrint?color=212121&include_prereleases&label=github&style=for-the-badge&logoColor=white&logo=AzureArtifacts&labelColor=303030
-[Badge NuGet]: https://img.shields.io/nuget/vpre/ColorPrint?color=012f52&style=for-the-badge&logoColor=white&logo=NuGet&labelColor=004880
+[Badge NuGet]: https://img.shields.io/nuget/vpre/ColorPrint.Core?color=012f52&style=for-the-badge&logoColor=white&logo=NuGet&labelColor=004880
 [Badge Size]: https://img.shields.io/github/repo-size/Aptivi/ColorPrint?color=bb4a28&label=size&logoColor=white&style=for-the-badge&logo=GoogleAnalytics&labelColor=E85C33
 
 [Badge Main]: https://github.com/Aptivi/ColorPrint/actions/workflows/build-win.yml/badge.svg
