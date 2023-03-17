@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorPrint", "ColorPrint\ColorPrint.csproj", "{98457368-B2DD-4709-8802-347B1C12139B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPrint.Core", "ColorPrint.Core\ColorPrint.Core.csproj", "{AFCA8096-E559-43ED-B1C6-54E3804FE021}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorPrint.Core", "ColorPrint.Core\ColorPrint.Core.csproj", "{AFCA8096-E559-43ED-B1C6-54E3804FE021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

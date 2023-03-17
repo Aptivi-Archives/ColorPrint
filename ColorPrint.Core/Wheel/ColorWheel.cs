@@ -338,8 +338,8 @@ namespace ColorPrint.Core.Wheel
             wheelR = !fallback ? initialColor.R : 0;
             wheelG = !fallback ? initialColor.G : 128;
             wheelB = !fallback ? initialColor.B : 0;
-            wheelColor255 = ConsoleColors.Green;
-            wheelColor16 = ConsoleColor.Green;
+            wheelColor255 = !fallback ? initialColor.Type == ColorType._255Color ? initialColor.ColorEnum255 : ConsoleColors.Green : ConsoleColors.Green;
+            wheelColor16 = !fallback ? initialColor.Type == ColorType._16Color ? initialColor.ColorEnum16 : ConsoleColor.Green : ConsoleColor.Green;
             wheelColor = !fallback ? initialColor : new(wheelR, wheelG, wheelB);
         }
     }
