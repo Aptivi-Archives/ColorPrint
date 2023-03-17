@@ -35,7 +35,7 @@ namespace ColorPrint
             Initializer.InitializeSequences();
 
             // Start the color wheel
-            var test = ColorWheel.InputForColor();
+            var test = ColorWheel.InputForColor(new ColorSeq.Color(ColorSeq.ConsoleColors.DarkRed));
         }
     }
 }

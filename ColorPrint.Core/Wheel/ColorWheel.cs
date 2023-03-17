@@ -40,9 +40,12 @@ namespace ColorPrint.Core.Wheel
         private static readonly Color infoBoxColorFg = new(ConsoleColors.White);
         private static readonly Color infoBoxColorBg = new(ConsoleColors.DarkRed);
 
-        public static Color InputForColor()
+        public static Color InputForColor() =>
+            InputForColor(null);
+
+        public static Color InputForColor(Color initialColor)
         {
-            ResetColors();
+            ResetColors(initialColor);
             ConsoleKeyInfo cki = default;
             while (cki.Key != ConsoleKey.Escape && cki.Key != ConsoleKey.Enter)
             {
@@ -52,7 +55,7 @@ namespace ColorPrint.Core.Wheel
                 UpdateColor();
             }
             if (cki.Key == ConsoleKey.Escape)
-                ResetColors();
+                ResetColors(initialColor);
             return wheelColor;
         }
 
@@ -328,15 +331,16 @@ namespace ColorPrint.Core.Wheel
             }
         }
 
-        private static void ResetColors()
+        private static void ResetColors(Color initialColor = null)
         {
-            wheelColorMode = ColorType.TrueColor;
-            wheelR = 0;
-            wheelG = 128;
-            wheelB = 0;
+            bool fallback = initialColor is null;
+            wheelColorMode = !fallback ? initialColor.Type : ColorType.TrueColor;
+            wheelR = !fallback ? initialColor.R : 0;
+            wheelG = !fallback ? initialColor.G : 128;
+            wheelB = !fallback ? initialColor.B : 0;
             wheelColor255 = ConsoleColors.Green;
             wheelColor16 = ConsoleColor.Green;
-            wheelColor = new(wheelR, wheelG, wheelB);
+            wheelColor = !fallback ? initialColor : new(wheelR, wheelG, wheelB);
         }
     }
 }
