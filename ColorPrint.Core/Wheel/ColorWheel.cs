@@ -103,20 +103,14 @@ namespace ColorPrint.Core.Wheel
                               boxNum == 2 ? $"Deuteranopia [{wheelSeverity:n2}]" :
                               boxNum == 3 ? $"Tritanopia [{wheelSeverity:n2}]" :
                               "Normal";
+                string bright = color.IsBright ? "Bright" : "Dark";
                 Box.MakeBox(topLeftCornerPosLeftCurrent, topLeftCornerPosTop, topLeftCornerPosLeftCurrent + boxWidth - 1, boxHeight, color);
                 Text.RenderText(mode, color, topLeftCornerPosLeftCurrent + boxWidth / 2 - mode.Length / 2, boxHeight + 2);
+                Text.RenderText(color.PlainSequence, color, topLeftCornerPosLeftCurrent + boxWidth / 2 - color.PlainSequence.Length / 2, boxHeight + 4);
+                Text.RenderText(color.Hex, color, topLeftCornerPosLeftCurrent + boxWidth / 2 - color.Hex.Length / 2, boxHeight + 5);
+                Text.RenderText(color.Type.ToString(), color, topLeftCornerPosLeftCurrent + boxWidth / 2 - color.Type.ToString().Length / 2, boxHeight + 6);
+                Text.RenderText(bright, color, topLeftCornerPosLeftCurrent + boxWidth / 2 - bright.Length / 2, boxHeight + 7);
             }
-
-            // Write some color information
-            Text.RenderText("\n\n", new Color(ConsoleColors.White));
-            Text.RenderText("Color RGB sequence: ", new Color(ConsoleColors.White));
-            Text.RenderTextLine($"Normal: {wheelColor.PlainSequence} - Protanopia: {wheelColorProtan.PlainSequence} - Deuteranopia: {wheelColorDeutan.PlainSequence} - Tritanopia: {wheelColorTritan.PlainSequence}", new Color(ConsoleColors.Gray));
-            Text.RenderText("HTML code:          ", new Color(ConsoleColors.White));
-            Text.RenderTextLine($"Normal: {wheelColor.Hex} - Protanopia: {wheelColorProtan.Hex} - Deuteranopia: {wheelColorDeutan.Hex} - Tritanopia: {wheelColorTritan.Hex}", new Color(ConsoleColors.Gray));
-            Text.RenderText("Color type:         ", new Color(ConsoleColors.White));
-            Text.RenderTextLine($"Normal: {wheelColor.Type} - Protanopia: {wheelColorProtan.Type} - Deuteranopia: {wheelColorDeutan.Type} - Tritanopia: {wheelColorTritan.Type}", new Color(ConsoleColors.Gray));
-            Text.RenderText("Bright?             ", new Color(ConsoleColors.White));
-            Text.RenderTextLine($"Normal: {wheelColor.IsBright} - Protanopia: {wheelColorProtan.IsBright} - Deuteranopia: {wheelColorDeutan.IsBright} - Tritanopia: {wheelColorTritan.IsBright}", new Color(ConsoleColors.Gray));
 
             // Write the RGB adjuster
             string adjusterTop = "  ^  ";
