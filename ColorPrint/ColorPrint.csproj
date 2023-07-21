@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ApplicationIcon>OfficialAppIcon-ColorPrint.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
-    <PackageVersion>1.1.0</PackageVersion>
+    <Version>1.2.0</Version>
+    <PackageVersion>1.2.0</PackageVersion>
     <Authors>Aptivi</Authors>
     <Product>ColorPrint</Product>
     <Description>Color wheel application</Description>

@@ -23,7 +23,6 @@
  */
 
 using ColorSeq;
-using Extensification.StringExts;
 using System;
 using System.Linq;
 
@@ -130,6 +129,25 @@ namespace ColorPrint.Core.Graphics
             // Wait until the user presses any key to close the box
             Text.RenderText("", new Color(ConsoleColors.White));
             Console.ReadKey(true);
+        }
+
+        private static string[] SplitNewLines(this string target) =>
+            target.Replace(Convert.ToChar(13).ToString(), "")
+               .Split(Convert.ToChar(10));
+
+        private static string Truncate(this string target, int threshold)
+        {
+            if (target is null)
+                throw new ArgumentNullException(nameof(target));
+
+            // Try to truncate string. If the string length is bigger than the threshold, it'll be truncated to the length of
+            // the threshold, putting three dots next to it. We don't use ellipsis marks here because we're dealing with the
+            // terminal, and some terminals and some monospace fonts may not support that character, so we mimick it by putting
+            // the three dots.
+            if (target.Length > threshold)
+                return target.Substring(0, threshold - 1) + "...";
+            else
+                return target;
         }
     }
 }
