@@ -16,6 +16,8 @@
     
 *A color wheel application.*
 
+*NOTE: This library is being replaced by Terminaux.*
+
 <br>
 <br>
 
